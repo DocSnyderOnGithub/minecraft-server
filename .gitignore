@@ -1,1 +1,3 @@
 *.jar
+/.idea/
+/minecraft-server.iml
