@@ -291,15 +291,15 @@ function download_from_modrinth() {
 	# selects the first element of the list of versions
 	jq_filter="first(.[]"
 	# remap the versions, platforms, and url to a simple json object
-	jq_filter+= " | {versions: .game_versions, platforms: .loaders, url: .files[0].url}"
+	jq_filter="${jq_filter} | {versions: .game_versions, platforms: .loaders, url: .files[0].url}"
 	# and select those that contain $2 in their platform list
-	jq_filter+=" | select(.platforms[] | contains(\"$2\"))"
+	jq_filter="${jq_filter} | select(.platforms[] | contains(\"$2\"))"
 	if [[ "$#" -gt 3 ]]; then
 		# if version is also specified, select that too...
-		jq_filter+=" | select(.versions[] | contains(\"$4\"))"
+		jq_filter="${jq_filter} | select(.versions[] | contains(\"$4\"))"
 	fi
 	# of the first item, get and return the url
-	jq_filter+=').url'
+	jq_filter="${jq_filter}).url"
 	download_url=$(echo "$feed" | jq -r "$jq_filter") \
 		|| die "jq filter $jq_filter is invalid"
 	

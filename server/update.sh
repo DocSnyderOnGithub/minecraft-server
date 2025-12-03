@@ -46,13 +46,14 @@ download_file "https://github.com/dmulloy2/ProtocolLib/releases/download/5.4.0/P
 substatus "Downloading Bluemap from hangar"
 download_file "https://hangarcdn.papermc.io/plugins/Blue/BlueMap/versions/5.13/PAPER/bluemap-5.13-paper.jar" plugins/bluemap.jar
 
-substatus "Downloading Advanced Portals from modrinth"
-download_from_modrinth "advanced-portals" "paper" plugins/Advanced-Portals.jar
 substatus "Downloading Worldedit from modrinth"
 download_from_modrinth "worldedit" "paper" plugins/Advanced-Portals.jar ${PREFERRED_PAPER_VERSION}
 substatus "Downloading Worldguard from bukkit.org"
 download_file "https://dev.bukkit.org/projects/worldguard/files/latest" plugins/worldguard.jar
 # https://cdn.modrinth.com/data/1u6JkXh5/versions/3ISh7ADm/worldedit-bukkit-7.3.17.jar
+
+substatus "Downloading Advanced Portals from modrinth"
+download_from_modrinth "advanced-portals" "paper" plugins/Advanced-Portals.jar
 
 download_from_json_feed \
   "https://ci.lucko.me/job/spark/lastSuccessfulBuild/api/json" \
