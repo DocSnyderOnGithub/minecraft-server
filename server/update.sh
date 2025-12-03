@@ -47,7 +47,7 @@ substatus "Downloading Bluemap from hangar"
 download_file "https://hangarcdn.papermc.io/plugins/Blue/BlueMap/versions/5.13/PAPER/bluemap-5.13-paper.jar" plugins/bluemap.jar
 
 substatus "Downloading Advanced Portals from modrinth"
-download_from_modrinth "advanced-portals" "paper" plugins/Advanced-Portals.jar ${PREFERRED_PAPER_VERSION}
+download_from_modrinth "advanced-portals" "paper" plugins/Advanced-Portals.jar
 substatus "Downloading Worldedit from modrinth"
 download_from_modrinth "worldedit" "paper" plugins/Advanced-Portals.jar ${PREFERRED_PAPER_VERSION}
 substatus "Downloading Worldguard from bukkit.org"
