@@ -37,3 +37,8 @@ download_from_json_feed \
    | select(.fileName | test("^spark-.*-velocity\\.jar$"))
    | "https://ci.lucko.me/job/spark/lastSuccessfulBuild/artifact/"+.relativePath' \
   "plugins/Spark.jar"
+
+substatus "Downloading Versioning support from hangar"
+download_from_hangar ViaVersion PAPER plugins/ViaVersion.jar
+download_from_hangar ViaBackwards PAPER plugins/ViaBackwards.jar
+# download_from_hangar Geyser PAPER plugins/Geyser.jar
