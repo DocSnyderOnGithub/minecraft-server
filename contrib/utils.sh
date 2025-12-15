@@ -118,12 +118,17 @@ function download_paper() {
 }
 
 # $1: output file name
+# $2: OPTIONAL - paper minecraft version (eg. 1.20.4), if left empty
 function download_velocity() {
 	local velocity_version
 	local velocity_build
 	local velocity_download
-	velocity_version="$(curl -s -o - "https://api.papermc.io/v2/projects/velocity" | jq -r ".versions[-1]")" \
-		|| die "Error while retrieving velocity version"
+	if [ $# -eq 2 ]; then
+		paper_version="$2"
+	else
+		velocity_version="$(curl -s -o - "https://api.papermc.io/v2/projects/velocity" | jq -r ".versions[-1]")" \
+			|| die "Error while retrieving velocity version"
+	fi
 	velocity_build="$(curl -s -o - "https://api.papermc.io/v2/projects/velocity/versions/$velocity_version" | jq -r ".builds[-1]")" \
 		|| die "Error while retrieving velocity builds"
 	velocity_download="$(curl -s -o - "https://api.papermc.io/v2/projects/velocity/versions/$velocity_version/builds/$velocity_build" | jq -r ".downloads.application.name")" \
