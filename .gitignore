@@ -1,3 +1,4 @@
 *.jar
 /.idea/
 /minecraft-server.iml
+/proxy/forwarding.secret
